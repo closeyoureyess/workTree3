@@ -31,13 +31,7 @@ class MyTreeSetTest {
         //4 L - L
         myTreeSet.add(14);
         subTree = myTreeSet.getPeak();
-        //Assertions.assertEquals(14, Integer.valueOf(String.valueOf(subTree)));
-
-        //5 R - L
-        myTreeSet.add(34);
-        subTree = myTreeSet.getPeak();
-        subTree = subTree.getRight().getLeft();
-        Assertions.assertEquals(34, Integer.valueOf(String.valueOf(subTree)));
+        Assertions.assertEquals(14, Integer.valueOf(String.valueOf(subTree.getLeft().getLeft())));
 
         //6 L - R
         myTreeSet.add(16);
@@ -45,13 +39,14 @@ class MyTreeSetTest {
         subTree = subTree.getLeft().getRight();
         Assertions.assertEquals(16, Integer.valueOf(String.valueOf(subTree)));
 
-        //8 - R - R
-        /*myTreeSet.add(40);
+        //5 R - L
+        myTreeSet.add(34);
         subTree = myTreeSet.getPeak();
-        for (int i = 0; i < 2; i++) {
-            subTree = subTree.getRight();
-        }
-        Assertions.assertEquals(40, Integer.valueOf(String.valueOf(subTree)));*/
+        subTree = subTree.getRight().getLeft();
+        Assertions.assertEquals(34, Integer.valueOf(String.valueOf(subTree)));
+
+        myTreeSet.add(40);
+        Assertions.assertEquals(40, Integer.valueOf(String.valueOf(subTree.getRight().getRight())));
 
     }
 
